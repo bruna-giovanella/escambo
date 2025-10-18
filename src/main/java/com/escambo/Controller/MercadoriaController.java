@@ -3,7 +3,6 @@ package com.escambo.Controller;
 import com.escambo.Dto.MercadoriaDto;
 import com.escambo.Entity.Mercadoria;
 import com.escambo.Service.MercadoriaService;
-import jakarta.persistence.Entity;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/mercadoria")
+@RequestMapping("/mercadorias")
 public class MercadoriaController {
 
     private final MercadoriaService mercadoriaService;
@@ -40,12 +39,12 @@ public class MercadoriaController {
 
     @PutMapping("/{mercadoriaId}")
     public ResponseEntity<Mercadoria> atualizar(@PathVariable(name = "mercadoriaId") Long mercadoriaId,
-                                                MercadoriaDto mercadoriaDto) {
+                                                @RequestBody MercadoriaDto mercadoriaDto) {
         return ResponseEntity.status(HttpStatus.OK)
                 .body(mercadoriaService.atualizarMercadoria(mercadoriaId, mercadoriaDto));
     }
 
-    @DeleteMapping("/{mercadoriaId")
+    @DeleteMapping("/{mercadoriaId}")
     public ResponseEntity<Void> deletar(@PathVariable(name = "mercadoriaId") Long mercadoriaId) {
         mercadoriaService.deletarMercadoria(mercadoriaId);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();

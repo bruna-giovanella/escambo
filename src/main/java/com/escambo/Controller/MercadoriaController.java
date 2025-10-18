@@ -38,4 +38,17 @@ public class MercadoriaController {
                 .body(mercadoriaService.visualizarMercadoria(mercadoriaId));
     }
 
+    @PutMapping("/{mercadoriaId}")
+    public ResponseEntity<Mercadoria> atualizar(@PathVariable(name = "mercadoriaId") Long mercadoriaId,
+                                                MercadoriaDto mercadoriaDto) {
+        return ResponseEntity.status(HttpStatus.OK)
+                .body(mercadoriaService.atualizarMercadoria(mercadoriaId, mercadoriaDto));
+    }
+
+    @DeleteMapping("/{mercadoriaId")
+    public ResponseEntity<Void> deletar(@PathVariable(name = "mercadoriaId") Long mercadoriaId) {
+        mercadoriaService.deletarMercadoria(mercadoriaId);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+    }
+
 }

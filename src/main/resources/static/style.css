@@ -1,0 +1,125 @@
+/* src/main/resources/static/style.css */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4; /* Cinza bem claro de fundo */
+    color: #333; /* Preto (quase) */
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #fff; /* Branco */
+    padding: 20px;
+    border: 1px solid #ccc; /* Cinza */
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+h1, h2 {
+    color: #000; /* Preto */
+    border-bottom: 2px solid #eee; /* Cinza claro */
+    padding-bottom: 10px;
+}
+
+/* --- Formulários --- */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+form label {
+    font-weight: bold;
+}
+
+form input[type="text"],
+form textarea {
+    width: 95%;
+    padding: 10px;
+    border: 1px solid #ccc; /* Cinza */
+    border-radius: 4px;
+    font-size: 1em;
+}
+
+form textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+/* --- Botões --- */
+.btn {
+    display: inline-block;
+    padding: 10px 15px;
+    text-decoration: none;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    margin: 5px 2px;
+}
+
+.btn-primary {
+    background-color: #333; /* Preto */
+    color: #fff; /* Branco */
+}
+.btn-primary:hover {
+    background-color: #555; /* Cinza escuro */
+}
+
+.btn-secondary {
+    background-color: #eee;
+    color: #333;
+    border: 1px solid #ccc;
+}
+.btn-secondary:hover {
+    background-color: #ddd;
+}
+
+.btn-danger {
+    background-color: #ddd;
+    color: #000;
+}
+.btn-danger:hover {
+    background-color: #ccc;
+}
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+th {
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+tr:nth-child(even) {
+    background-color: #fdfdfd;
+}
+
+
+.detalhe-item {
+    margin-bottom: 15px;
+}
+.detalhe-item strong {
+    display: block;
+    color: #555;
+    margin-bottom: 5px;
+}
+.detalhe-item img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}

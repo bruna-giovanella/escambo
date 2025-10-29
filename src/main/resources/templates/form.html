@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${action == 'salvar'} ? 'Cadastrar Mercadoria' : 'Editar Mercadoria'">
+        Formulário
+    </title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+<body>
+<div class="container">
+    <h2 th:text="${action == 'salvar'} ? 'Cadastrar Nova Mercadoria' : 'Editar Mercadoria'"></h2>
+
+    <form method="POST"
+          th:action="@{${action == 'salvar'} ? '/mercadorias/salvar' : '/mercadorias/atualizar/' + ${mercadoriaId}}"
+          th:object="${mercadoriaDto}">
+
+        <div>
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" th:field="*{nome}" required>
+        </div>
+        <div>
+            <label for="descricao">Descrição:</label>
+            <textarea id="descricao" th:field="*{descricao}" required></textarea>
+        </div>
+        <div>
+            <label for="imagemUrl">URL da Imagem:</label>
+            <input type="text" id="imagemUrl" th:field="*{imagemUrl}" placeholder="https://exemplo.com/imagem.png">
+        </div>
+
+        <button type="submit" class="btn btn-primary" th:text="${action == 'salvar'} ? 'Salvar' : 'Atualizar'">
+            Salvar
+        </button>
+        <a th:href="@{/mercadorias}" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Visualizar Mercadoria</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+<body>
+<div class="container">
+    <div th:object="${mercadoria}">
+        <h2 th:text="*{nome}">Nome da Mercadoria</h2>
+
+        <div class="detalhe-item">
+            <strong>ID:</strong>
+            <p th:text="*{mercadoriaId}">-</p>
+        </div>
+        <div class="detalhe-item">
+            <strong>Descrição:</strong>
+            <p th:text="*{descricao}">-</p>
+        </div>
+        <div class="detalhe-item">
+            <strong>Imagem:</strong>
+            <img th:if="*{imagemUrl != null AND imagemUrl != ''}" th:src="*{imagemUrl}" alt="Imagem da mercadoria">
+            <p th:unless="*{imagemUrl != null AND imagemUrl != ''}">Sem imagem fornecida.</p>
+        </div>
+    </div>
+
+    <a th:href="@{/mercadorias}" class="btn btn-secondary">Voltar para a Lista</a>
+</div>
+</body>
+</html>

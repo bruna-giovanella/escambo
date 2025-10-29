@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Mercadorias</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+<body>
+<div class="container">
+    <h1>Troca de Mercadorias</h1>
+    <a th:href="@{/mercadorias/cadastrar}" class="btn btn-primary">Cadastrar Nova Mercadoria</a>
+
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Ações</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="m : ${mercadorias}">
+            <td th:text="${m.mercadoriaId}">1</td>
+            <td th:text="${m.nome}">Nome da Mercadoria</td>
+            <td>
+                <a th:href="@{/mercadorias/visualizar/{id}(id=${m.mercadoriaId})}" class="btn btn-secondary">Visualizar</a>
+                <a th:href="@{/mercadorias/editar/{id}(id=${m.mercadoriaId})}" class="btn btn-secondary">Editar</a>
+                <a th:href="@{/mercadorias/deletar/{id}(id=${m.mercadoriaId})}"
+                   class="btn btn-danger"
+                   onclick="return confirm('Tem certeza que deseja deletar?');">Deletar</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
